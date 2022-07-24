@@ -1,0 +1,16 @@
+# задача 2
+from math import sqrt
+values=[]
+for value in range(4600000,5900000+1):
+    count=0
+    square_root=round(sqrt(value))
+    if square_root**2==value:
+        count+=1
+    for divs in range(1,square_root):
+        if value%divs==0:
+            count+=2
+            if count>3:
+                break
+    if count==3 and (('32'in str(value)) or ('39'in str(value)) or ('321'in str(value)) or ('391'in str(value))):
+        values.append(value)
+print(max(values))
