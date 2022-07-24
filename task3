@@ -1,0 +1,21 @@
+# задача 3
+from math import sqrt
+count=0
+total_winnings=0
+for value in range(2422000, 2522000+1):
+    count_divs=1
+    square_root=round(sqrt(value))
+    for d in range(2,square_root+1):
+        if value%d==0:
+            count_divs+=1
+            break
+    if count_divs==1 and value%10==9:
+        count+=1
+        ticket_price=(bin(value)).count('1')*100
+        prize=value/10
+        clean_money=prize-ticket_price
+        #print(value, ticket_price, prize, clean_money)
+        total_winnings+=clean_money
+    if count==5:
+        print(round(total_winnings))
+        break
