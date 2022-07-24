@@ -1,0 +1,17 @@
+# задача 1
+from math import sqrt  
+count=0  
+for value in range(600000,700000+1):  
+    sum_of_divs=0  
+    square_root=round(sqrt(value))  
+    for divs in range(2,square_root+1):  
+        if value%divs==0:  
+            sum_of_divs=divs+(value//divs)  
+            if sum_of_divs%10000==2022:  
+                count+=1  
+                print(value, sum_of_divs, round(sum_of_divs/value*100))  
+            else:
+                break  
+            break  
+    if count==5:  
+        break
